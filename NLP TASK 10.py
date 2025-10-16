@@ -6,7 +6,10 @@ nlp = spacy.load("en_core_web_sm")
 
 def pos_tag_and_extract_info(text):
     doc = nlp(text)
-    nouns, verbs, adjectives, entities = [], [], [], []
+    nouns = []
+    verbs = []
+    adjectives = []
+    entities = []
 
     for token in doc:
         if token.pos_ == "NOUN":
@@ -21,6 +24,7 @@ def pos_tag_and_extract_info(text):
 
     return nouns, verbs, adjectives, entities
 
+
 # Example HTML document
 web_document = """
 <html>
@@ -34,10 +38,10 @@ web_document = """
 </html>
 """
 
-# Extract text from HTML
 def extract_text_from_html(html):
     soup = BeautifulSoup(html, 'html.parser')
     return soup.get_text()
+
 
 # Run processing
 text_content = extract_text_from_html(web_document)
