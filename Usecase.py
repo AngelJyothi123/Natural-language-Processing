@@ -6,7 +6,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
 
 # Input English text
-english_text = "Hello, how are you doing today?"
+english_text = "I am doing good?"
 
 # Tokenize the text
 inputs = tokenizer(english_text, return_tensors="pt")
